@@ -213,7 +213,7 @@
         <plugin name="${prefix}_controller" filename="libgazebo_ros_camera.so">
           <alwaysOn>true</alwaysOn>
           <updateRate>0.0</updateRate>
-          <cameraName>${prefix_topic}/rgb</cameraName>
+          <cameraName>top_rgb_${prefix_topic}</cameraName>
           <imageTopicName>image_raw</imageTopicName>
           <cameraInfoTopicName>camera_info</cameraInfoTopicName>
           <frameName>${prefix}_optical_frame_link</frameName>
@@ -246,7 +246,7 @@
         <plugin name="thermal_camera_controller" filename="libgazebo_ros_thermal_camera.so">
           <alwaysOn>true</alwaysOn>
           <updateRate>${fps}</updateRate>
-          <cameraName>${prefix_topic}/thermal</cameraName>
+          <cameraName>top_thermal_${prefix_topic}</cameraName>
           <imageTopicName>image_raw</imageTopicName>
           <cameraInfoTopicName>camera_info</cameraInfoTopicName>
           <frameName>${prefix}_frame_link</frameName>
