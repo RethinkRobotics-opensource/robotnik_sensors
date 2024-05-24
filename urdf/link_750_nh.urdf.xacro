@@ -213,9 +213,9 @@
         <plugin name="${prefix}_controller" filename="libgazebo_ros_camera.so">
           <alwaysOn>true</alwaysOn>
           <updateRate>0.0</updateRate>
-          <cameraName>top_rgb_${prefix_topic}</cameraName>
-          <imageTopicName>image_raw</imageTopicName>
-          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+          <cameraName>${prefix_topic}</cameraName>
+          <imageTopicName>color/image_raw</imageTopicName>
+          <cameraInfoTopicName>color/camera_info</cameraInfoTopicName>
           <frameName>${prefix}_optical_frame_link</frameName>
           <!-- this is just which name the Image msg will have, it does not affect the simulation.
                However must be set to the optical_frame,  -->
@@ -246,9 +246,9 @@
         <plugin name="thermal_camera_controller" filename="libgazebo_ros_thermal_camera.so">
           <alwaysOn>true</alwaysOn>
           <updateRate>${fps}</updateRate>
-          <cameraName>top_thermal_${prefix_topic}</cameraName>
-          <imageTopicName>image_raw</imageTopicName>
-          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+          <cameraName>${prefix_topic}</cameraName>
+          <imageTopicName>thermal/image_raw</imageTopicName>
+          <cameraInfoTopicName>thermal/camera_info</cameraInfoTopicName>
           <frameName>${prefix}_frame_link</frameName>
         </plugin>
       </sensor>
