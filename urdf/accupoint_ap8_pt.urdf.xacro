@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://wiki.ros.org/xacro" name="sensor_axis">
-  <xacro:property name="ptz_joint_effort_limit" value="100.0"/>
-  <xacro:property name="ptz_joint_velocity_limit" value="100.0"/>
+  <xacro:property name="ptz_joint_effort_limit" value="10.0"/>
+  <xacro:property name="ptz_joint_velocity_limit" value="1.0"/>
   <xacro:property name="ptz_joint_friction" value="0.1"/>
   <xacro:property name="ptz_joint_damping" value="0.1"/>
   <xacro:property name="ptz_mechanical_reduction" value="1.0"/>
