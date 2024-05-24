@@ -74,10 +74,10 @@
     <transmission name="${prefix}_pan_trans">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${prefix}_pan_joint">
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       </joint>
-      <actuator name="${prefix}_pan_motor">
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      <actuator name="${prefix}pan_motor">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         <mechanicalReduction>${ptz_mechanical_reduction}</mechanicalReduction>
       </actuator>
     </transmission>
@@ -116,10 +116,10 @@
     <transmission name="${prefix}_tilt_trans">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${prefix}_tilt_joint">
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       </joint>
-      <actuator name="${prefix}_tilt_motor">
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      <actuator name="${prefix}tilt_motor">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         <mechanicalReduction>${ptz_mechanical_reduction}</mechanicalReduction>
       </actuator>
     </transmission>
