@@ -15,7 +15,7 @@
       <xacro:sensor_accupoint_ap8 prefix="${prefix}" parent="${parent}">
     	  <xacro:insert_block name="origin"/>
     	</xacro:sensor_accupoint_ap8>
-    	<xacro:sensor_sensia_raismart prefix="${prefix}" parent="${prefix}_top_link">
+    	<xacro:sensor_sensia_raismart prefix="${prefix}" parent="${prefix}_top_link" prefix_topic="${prefix_topic}">
     	  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
     	</xacro:sensor_sensia_raismart>
 
