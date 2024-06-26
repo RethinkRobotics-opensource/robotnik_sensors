@@ -75,9 +75,8 @@
       </visual>  
 
       <xacro:if value="${gpu}">
-        <!-- Using GPU needs: https://github.com/RobotnikAutomation/velodyne_simulator -->
         <xacro:property name="ray_type" value="gpu_ray" />
-        <xacro:property name="plugin_lib" value="libgazebo_ros_velodyne_gpu_laser.so" />
+        <xacro:property name="plugin_lib" value="libgazebo_ros_velodyne_laser.so" />
       </xacro:if>
       <xacro:unless value="${gpu}">
         <xacro:property name="ray_type" value="ray" />
@@ -97,7 +96,7 @@
               </horizontal>
               <vertical>
                 <samples>${lasers}</samples>
-                <min_angle>-${5*M_PI/180.0}</min_angle>  <!-- bpearl has 90 degrees of vertical field of view-->
+                <min_angle>-${12*M_PI/180.0}</min_angle>  <!-- bpearl has 90 degrees of vertical field of view-->
                 <max_angle> ${(vfov-5)*M_PI/180.0}</max_angle>  
               </vertical>
             </scan>
