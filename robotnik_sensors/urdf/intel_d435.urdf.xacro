@@ -11,7 +11,7 @@ Copyright(c) 2020 Robotnik Automation. All Rights Reserved
   <!-- Includes -->
 
   <xacro:macro name="sensor_intel_d435"
-    params="prefix parent *origin prefix_topic:='front_rgbd_camera' use_nominal_extrinsics:=false">
+    params="prefix parent *origin prefix_topic:='front_rgbd_camera' use_nominal_extrinsics:=true">
     <xacro:property name="M_PI" value="3.1415926535897931" />
 
     <!-- The following values are approximate, and the camera node
@@ -167,6 +167,7 @@ Copyright(c) 2020 Robotnik Automation. All Rights Reserved
      <min_depth>0</min_depth>-->
       <sensor name="${camera_name}color" type="camera">
         <topic>camera/image_raw</topic>
+        <gz_frame_id>${prefix}_link</gz_frame_id>
         <camera name="${camera_name}">
           <horizontal_fov>${69.4*deg_to_rad}</horizontal_fov>
           <image>
@@ -234,7 +235,7 @@ Copyright(c) 2020 Robotnik Automation. All Rights Reserved
       </sensor>
       <sensor name="${camera_name}depth" type="depth">
         <topic>camera/depth_image</topic>
-        <gz_frame_id>${prefix}_link</gz_frame_id>
+        <gz_frame_id>${depth_optical_frame}</gz_frame_id>
         <camera name="${camera_name}">
           <horizontal_fov>${85.2*deg_to_rad}</horizontal_fov>
           <image>
