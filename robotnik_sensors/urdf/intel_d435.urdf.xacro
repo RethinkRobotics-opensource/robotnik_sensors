@@ -11,7 +11,7 @@ Copyright(c) 2020 Robotnik Automation. All Rights Reserved
   <!-- Includes -->
 
   <xacro:macro name="sensor_intel_d435"
-    params="prefix parent *origin prefix_topic:='front_rgbd_camera' use_nominal_extrinsics:=true">
+    params="prefix parent *origin prefix_topic:='front_rgbd_camera' use_nominal_extrinsics:=true update_rate_ratio:=1.0">
     <xacro:property name="M_PI" value="3.1415926535897931" />
 
     <!-- The following values are approximate, and the camera node
@@ -173,7 +173,7 @@ Copyright(c) 2020 Robotnik Automation. All Rights Reserved
           <image>
             <width>1920</width>
             <height>1080</height>
-            <format>RGB_INT8</format>
+            <format>R8G8B8</format>
           </image>
           <clip>
             <near>0.1</near>
@@ -186,16 +186,18 @@ Copyright(c) 2020 Robotnik Automation. All Rights Reserved
           </noise>
         </camera>
         <always_on>1</always_on>
-        <update_rate>30</update_rate>
+        <update_rate>${30*update_rate_ratio}</update_rate>
         <visualize>false</visualize>
       </sensor>
       <sensor name="${camera_name}ired1" type="camera">
+        <topic>camera/ired1</topic>
+        <gz_frame_id>${prefix}_infra1_frame</gz_frame_id>
         <camera name="${camera_name}">
           <horizontal_fov>${85.2*deg_to_rad}</horizontal_fov>
           <image>
             <width>1280</width>
             <height>720</height>
-            <format>L_INT8</format>
+            <format>L8</format>
           </image>
           <clip>
             <near>0.1</near>
@@ -208,16 +210,18 @@ Copyright(c) 2020 Robotnik Automation. All Rights Reserved
           </noise>
         </camera>
         <always_on>1</always_on>
-        <update_rate>90</update_rate>
+        <update_rate>${60*update_rate_ratio}</update_rate>
         <visualize>false</visualize>
       </sensor>
       <sensor name="${camera_name}ired2" type="camera">
+        <topic>camera/ired2</topic>
+        <gz_frame_id>${prefix}_infra2_frame</gz_frame_id>
         <camera name="${camera_name}">
           <horizontal_fov>${85.2*deg_to_rad}</horizontal_fov>
           <image>
             <width>1280</width>
             <height>720</height>
-            <format>L_INT8</format>
+            <format>L8</format>
           </image>
           <clip>
             <near>0.1</near>
@@ -230,10 +234,10 @@ Copyright(c) 2020 Robotnik Automation. All Rights Reserved
           </noise>
         </camera>
         <always_on>1</always_on>
-        <update_rate>90</update_rate>
+        <update_rate>${60*update_rate_ratio}</update_rate>
         <visualize>false</visualize>
       </sensor>
-      <sensor name="${camera_name}depth" type="depth">
+      <sensor name="${camera_name}depth" type="depth_camera">
         <topic>camera/depth_image</topic>
         <gz_frame_id>${depth_optical_frame}</gz_frame_id>
         <camera name="${camera_name}">
@@ -253,7 +257,7 @@ Copyright(c) 2020 Robotnik Automation. All Rights Reserved
           </noise>
         </camera>
         <always_on>1</always_on>
-        <update_rate>90</update_rate>
+        <update_rate>${30*update_rate_ratio}</update_rate>
         <visualize>false</visualize>
       </sensor>
     </gazebo>
